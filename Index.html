@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince Kumar Singh | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-blue: #3b82f6;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .profile-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        #profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-blue);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        #profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+            font-weight: 500;
+        }
+
+        /* --- About Section --- */
+        .about-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+
+        /* --- Skills Section --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            transition: 0.3s;
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        /* --- Projects Section --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-blue);
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-right: 5px;
+        }
+
+        /* --- Photo Upload Utility --- */
+        .upload-btn {
+            margin-top: 15px;
+            background: var(--accent-blue);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        #file-input { display: none; }
+
+        /* --- Contact --- */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            margin-right: 20px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover { color: var(--accent-blue); }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            color: white;
+            border-radius: 8px;
+        }
+
+        button[type="submit"] {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .contact-content { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <section class="hero">
+            <div class="profile-container">
+                <img id="profile-img" src="https://via.placeholder.com/180" alt="Prince Kumar Singh">
+                <br>
+                <label for="file-input" class="upload-btn">Change Photo</label>
+                <input type="file" id="file-input" accept="image/*">
+            </div>
+            <h1>Prince Kumar Singh</h1>
+            <p>Passionate Learner | Developer in Progress</p>
+        </section>
+
+        <section id="about">
+            <div class="about-card">
+                <h2>About Me</h2>
+                <p>Hello! I am a student and an aspiring developer with a deep interest in how technology shapes the world. Currently, I am focusing on building a strong foundation in programming logic and modern web technologies. I love solving problems and turning ideas into functional code.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fas fa-code"></i><p>C Programming</p></div>
+                <div class="skill-item"><i class="fas fa-database"></i><p>Data Structures</p></div>
+                <div class="skill-item"><i class="fab fa-python"></i><p>Python</p></div>
+                <div class="skill-item"><i class="fab fa-html5"></i><p>Web Dev</p></div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>My Portfolio</h3>
+                    <p style="color: var(--text-secondary); margin: 10px 0;">A modern, dark-themed responsive portfolio website.</p>
+                    <div>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JS</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Future Project</h3>
+                    <p style="color: var(--text-secondary); margin: 10px 0;">Coming soon... working on something exciting!</p>
+                    <div>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="social-links">
+                    <p style="margin-bottom: 20px;">Feel free to reach out for collaborations or just a friendly hello!</p>
+                    <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/yourusername"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <form>
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea rows="5" placeholder="Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Image Upload Logic
+        const fileInput = document.getElementById('file-input');
+        const profileImg = document.getElementById('profile-img');
+
+        fileInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileImg.setAttribute('src', e.target.result);
+                    // Save to local storage so it persists on refresh
+                    localStorage.setItem('profile-photo', e.target.result);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Load saved photo on page load
+        window.onload = function() {
+            const savedPhoto = localStorage.getItem('profile-photo');
+            if (savedPhoto) {
+                profileImg.setAttribute('src', savedPhoto);
+            }
+        };
+    </script>
+</body>
+</html>
